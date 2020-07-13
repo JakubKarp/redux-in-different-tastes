@@ -1,21 +1,16 @@
 import React, {useState} from 'react';
-import store from "./redux/simple-redux";
 import '../App.css';
 
 function Buttons() {
-  const [number, setNumber] = useState(store.getState())
+  const [number, setNumber] = useState(0)
 
   const add = () => {
-    store.dispatch({type: 'ADD'})
+    setNumber(prev => prev + 1)
   }
 
   const subtract = () => {
-    store.dispatch({type: 'SUBTRACT'})
+    setNumber(prev => prev - 1)
   }
-
-  store.subscribe(() => {
-    setNumber(store.getState())
-  })
 
   return (
     <div className="numbers">

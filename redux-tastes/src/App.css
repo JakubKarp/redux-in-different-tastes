@@ -8,10 +8,10 @@
   height: 10vh;
   background: blueviolet;
 }
+
 .App3 {
   text-align: center;
-  height: 10vh;
-  background: indianred;
+  background: darkgoldenrod;
 }
 
 .App4 {
@@ -27,6 +27,12 @@
 .App6 {
   text-align: center;
   background: orchid;
+}
+
+.App7 {
+  text-align: center;
+  height: 10vh;
+  background: indianred;
 }
 
 
