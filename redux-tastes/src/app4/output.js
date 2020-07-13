@@ -16,6 +16,5 @@ function Output() {
   );
 }
 
-// store.subscribe(Output)
 export default Output;
 

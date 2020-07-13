@@ -1,16 +1,21 @@
 import React, {useState} from 'react';
+import myOwnStore from "./redux/my-own-redux";
 import '../App.css';
 
 function Buttons() {
-  const [number, setNumber] = useState(0)
+  const [number, setNumber] = useState(myOwnStore.getState())
 
   const add = () => {
-    setNumber(prev => prev + 1)
+    myOwnStore.dispatch({type: 'ADD'})
   }
 
   const subtract = () => {
-    setNumber(prev => prev - 1)
+    myOwnStore.dispatch({type: 'SUBTRACT'})
   }
+
+  myOwnStore.subscribe(() => {
+    setNumber(myOwnStore.getState())
+  })
 
   return (
     <div className="numbers">

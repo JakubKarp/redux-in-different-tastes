@@ -4,8 +4,7 @@ import '../App.css';
 function Description() {
   return (
     <div className="description">
-      This is Redux This is ReduxThis is ReduxThis is ReduxThis is ReduxThis is ReduxThis is ReduxThis is ReduxThis is ReduxThis is ReduxThis is ReduxThis is ReduxThis is Redux
-      This is Redux This is ReduxThis is ReduxThis is ReduxThis is ReduxThis is ReduxThis is ReduxThis is ReduxThis is ReduxThis is ReduxThis is ReduxThis is ReduxThis is Redux
+      Redux postawiony zupełnie od zera - czyli napisany własnoręcznie. Kluczowa funkcja - createStore, gdzie definiujemy: getState, dispatch i subscribe. Reszta - czyli wywoływanie tych funkcji tak jak poniżej.
     </div>
   );
 }
