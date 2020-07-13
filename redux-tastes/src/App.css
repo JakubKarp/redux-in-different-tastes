@@ -13,3 +13,47 @@
   height: 10vh;
   background: indianred;
 }
+
+.App4 {
+  text-align: center;
+  background: cornflowerblue;
+}
+
+.App5 {
+  text-align: center;
+  background: orangered;
+}
+
+.App6 {
+  text-align: center;
+  background: orchid;
+}
+
+
+
+
+/* //////////////////////////////// */
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  padding: 24px;
+}
+
+.description {
+  max-width: 50%;
+}
+
+.numbers {
+  display: flex;
+  flex-direction: column;
+}
+
+.number {
+  padding: 8px;
+}
+
+.button {
+  margin: 0 8px;
+  padding: 8px;
+}

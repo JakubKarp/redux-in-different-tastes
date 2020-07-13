@@ -14,8 +14,9 @@ let model = {
 
 //view
 const App3 = (model, some) => {
-  console.log('JEST?', some);
-  Object.assign( some, {any: "pula"} )
+// const App3 = (model, some) => {
+  // console.log('JEST?', some);
+  // Object.assign( some, {any: "pula"} )
   let minutes = Math.floor(model.time / 60);
   let seconds = model.time - (minutes*60);
   let secondsFormatted = `${seconds < 10 ? 0 : ''}${seconds}`
@@ -44,11 +45,13 @@ setInterval(() => {
 }, 1000)
 
 
-export const renderApp3 = (some) => {
-  console.log('JEST a?', some);
+export const renderApp3 = () => {
+// export const renderApp3 = (some) => {
+  // console.log('JEST a?', some);
   ReactDOM.render(
-    App3(model, some),
+    App3(model),
+    // App3(model, some),
   document.getElementById('root3')
   );
-  return some;
+  // return some;
 }
