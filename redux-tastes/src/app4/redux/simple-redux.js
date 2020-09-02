@@ -1,13 +1,18 @@
 import { createStore } from 'redux';
 
-const defaultState = 10;
+const defaultState = {
+  ss: 10,
+  bb: 12
+};
 
 const reducer = (state = defaultState, action) => {
   if (action.type === 'ADD') {
-    return state + 1;
+    state.ss = state.ss + 1;
+    return {...state};
   }
   if (action.type === 'SUBTRACT') {
-    return state - 1;
+    state.ss = state.ss + 1;
+    return {...state};
   }
   return state;
 }

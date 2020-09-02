@@ -11,7 +11,8 @@ function Output() {
 
   return (
     <div className="output">
-      number is {actualNumber}
+      <p> number is {actualNumber.ss}</p>
+      <p>fixed number from state object {actualNumber.bb}</p>
     </div>
   );
 }

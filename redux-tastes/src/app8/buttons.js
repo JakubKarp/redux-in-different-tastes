@@ -1,26 +1,20 @@
 import React, {useState} from 'react';
-import store from "./redux/simple-redux";
 import '../App.css';
 
 function Buttons() {
-  const [number, setNumber] = useState(store.getState())
+  const [number, setNumber] = useState(0)
 
   const add = () => {
-    store.dispatch({type: 'ADD'})
+    setNumber(prev => prev + 1)
   }
 
   const subtract = () => {
-    store.dispatch({type: 'SUBTRACT'})
+    setNumber(prev => prev - 1)
   }
-
-  store.subscribe(() => {
-    setNumber(store.getState())
-  })
 
   return (
     <div className="numbers">
-     <div className="number">{number.ss}</div>
-     <div className="number">fixed number {number.bb}</div>
+     <div className="number">{number}</div>
      <div className="buttons">
       <button onClick={add} className="button">Dodaj</button>
       <button onClick={subtract} className="button">Odejmij</button>
