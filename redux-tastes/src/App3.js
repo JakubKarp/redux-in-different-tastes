@@ -7,7 +7,7 @@ import "./App.css";
 function App3() {
   return (
     <div className="App3">
-      <h2>Redux napisany z ręki od zera</h2>
+      <h2>Redux from scratch</h2>
       <div className="container">
         <Buttons />
         <Output />

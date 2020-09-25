@@ -2,7 +2,7 @@ import { ACTIONS } from './actions';
 
 const defaultState = {
   number_1: 20,
-  number_2: 30,
+  gif: '',
 }
 
 const reducer = (state = defaultState, action) => {
@@ -12,10 +12,8 @@ const reducer = (state = defaultState, action) => {
       return  { ...state, number_1: action.payload.number_1 + 1 }
       case ACTIONS.DECREASE_NUMBER_1:
         return  { ...state, number_1: action.payload.number_1 - 1 }
-    case ACTIONS.INCREASE_NUMBER_2:
-      return  { number_1: action.payload.number_1 + 5, number_2: action.payload.number_2 + 1 }
-      case ACTIONS.DECREASE_NUMBER_2:
-        return  { number_1: action.payload.number_1 - 5, number_2: action.payload.number_2 - 1 }
+      case ACTIONS.FETCH_SMILE_SUCCEEDED:
+        return  { ...state, gif: action.payload.gif }
     default:
       return state;
   }
