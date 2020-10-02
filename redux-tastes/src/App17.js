@@ -24,12 +24,12 @@ return <div className="App7">{minutes} : {secondsFormatted}</div>
 }
 
 // intents
-let intents = {
-  TICK: 'TICK',
-  START: 'START',
-  STOP: 'STOP',
-  RESET: 'RESET'
-}
+// let intents = {
+//   TICK: 'TICK',
+//   START: 'START',
+//   STOP: 'STOP',
+//   RESET: 'RESET'
+// }
 
 // aplly intent to model and return new model
 const update = (modela, intent) => {

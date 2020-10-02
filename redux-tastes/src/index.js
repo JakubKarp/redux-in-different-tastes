@@ -33,8 +33,9 @@ ReactDOM.render(<App7 />, document.getElementById("root7"));
 ReactDOM.render(<App8 />, document.getElementById("root8"));
 
 const ll = { some: "ala", any: "gala" };
-const c = renderApp17(ll);
-console.log("c", c);
+// const c = renderApp17(ll);
+renderApp17(ll);
+// console.log("c", c);
 
 // ReactDOM.render(
 //   App3(model),

@@ -6,7 +6,7 @@ const defaultState = {
 }
 
 const reducer = (state = defaultState, action) => {
-  console.log("reducer -> action", action?.payload, action.type)
+  // console.log("reducer -> action", action?.payload, action.type)
   switch (action.type) {
     case ACTIONS.INCREASE_NUMBER_1:
       return  { ...state, number_1: action.payload.number_1 + 1 }

@@ -23,7 +23,7 @@ const createMyStore = (reducer) => {
   };
 
   const subscribe = (listener) => {
-    console.log("subscribe -> listener", listener)
+    // console.log("subscribe -> listener", listener)
     listeners.push(listener);
     return () => {
       listeners = listeners.filter((l) => l !== listener);
