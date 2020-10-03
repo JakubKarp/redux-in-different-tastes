@@ -9,7 +9,10 @@ function Description() {
       typ wywołanej akcji, samą akcję (jej obiekt), oraz stan stora po zakończeniu akcji.<br />
       Middleware skłąda się z trzech zagnieżdżonych funkcji. Kluczowa funkcja next.<br />
       W middlewera można ubrać cokolwiek. <br />
-      Wszystko opórcz middleware jak powyżej.<br />
+      Drugi przykład - apiMiddleware - trzy akcje (start, sukces, fail i zapytania do api w middlewarze.<br />
+      W actions_creators tylko jedna funkcja.<br />
+      Słowem obsługa całego zapytania do api w middlewarze (plik: /middleware/api).<br />
+      Ważna kolejność middlewarów - logger za api - dzięki temu loguje zdarzenia.<br />
     </div>
   );
 }

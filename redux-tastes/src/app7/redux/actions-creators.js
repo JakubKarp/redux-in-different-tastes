@@ -1,5 +1,6 @@
 import { ACTIONS } from './actions';
-import CONSTS from '../../consts/consts';
+// import CONSTS from '../../consts/consts';
+import { CALL_API } from '../middleware/api';
 
 export const increaseNumber_1 = (number_1) => {
   return {
@@ -19,21 +20,11 @@ export const decreaseNumber_1 = (number_1) => {
   }
 }
 
-export const fetchSmileSucceeded = (gif) => {
+export const fetchSmileFromMiddleware = () => {
   return {
-    type: ACTIONS.FETCH_SMILE_SUCCEEDED,
-    payload: {
-      gif,
+    [CALL_API]: {
+      types: [ACTIONS.FETCH_SMILE_STARTED, ACTIONS.FETCH_SMILE_SUCCEEDED, ACTIONS.FETCH_SMILE_FAIL],
+      endpoint: 'smile'
     }
-  }
-}
-
-export const fetchSmile = () => {
-  return dispatch => {
-     fetch(`https://api.giphy.com/v1/gifs/random?api_key=${CONSTS.GIPHY_KEY}&tag=smile`)
-      .then(resp => resp.json())
-      .then(resp => {
-        dispatch(fetchSmileSucceeded(resp.data.fixed_height_downsampled_url))
-    })
   }
 }

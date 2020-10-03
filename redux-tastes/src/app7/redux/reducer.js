@@ -13,7 +13,7 @@ const reducer = (state = defaultState, action) => {
       case ACTIONS.DECREASE_NUMBER_1:
         return  { ...state, number_1: action.payload.number_1 - 1 }
       case ACTIONS.FETCH_SMILE_SUCCEEDED:
-        return  { ...state, gif: action.payload.gif }
+        return  { ...state, gif: action.payload }
     default:
       return state;
   }
