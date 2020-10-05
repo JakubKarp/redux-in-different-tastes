@@ -36,6 +36,16 @@
 
 .App8 {
   text-align: center;
+  background: lightblue;
+}
+
+.App9 {
+  text-align: center;
+  background: darkorange;
+}
+
+.App10 {
+  text-align: center;
   background: darkolivegreen;
 }
 
