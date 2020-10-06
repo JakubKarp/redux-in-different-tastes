@@ -1,5 +1,5 @@
 import { ACTIONS } from './actions';
-import CONSTS from '../../consts/consts';
+import * as api from '../api';
 
 export const increaseNumber_1 = (number_1) => {
   return {
@@ -25,6 +25,7 @@ export const fetchSmileStarted = () => {
   }
 }
 
+
 export const fetchSmileSucceeded = (gif) => {
   return {
     type: ACTIONS.FETCH_SMILE_SUCCEEDED,
@@ -35,15 +36,11 @@ export const fetchSmileSucceeded = (gif) => {
 }
 
 export const fetchSmile = () => {
-  return dispatch => {
+  return async dispatch => {
     dispatch(fetchSmileStarted());
 
-     fetch(`https://api.giphy.com/v1/gifs/random?api_key=${CONSTS.GIPHY_KEY}&tag=smile`)
-      .then(resp => resp.json())
-      .then(resp => {
-        setTimeout(() => {
-          dispatch(fetchSmileSucceeded(resp.data.fixed_height_downsampled_url))
-        }, 100)
-    })
+    const gif = await api.getSmile()
+    dispatch(fetchSmileSucceeded(gif))
   }
-}
+};
+
