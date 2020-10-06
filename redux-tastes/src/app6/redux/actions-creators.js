@@ -19,6 +19,12 @@ export const decreaseNumber_1 = (number_1) => {
   }
 }
 
+export const fetchSmileStarted = () => {
+  return {
+    type: ACTIONS.FETCH_SMILE_STARTED,
+  }
+}
+
 export const fetchSmileSucceeded = (gif) => {
   return {
     type: ACTIONS.FETCH_SMILE_SUCCEEDED,
@@ -30,10 +36,14 @@ export const fetchSmileSucceeded = (gif) => {
 
 export const fetchSmile = () => {
   return dispatch => {
+    dispatch(fetchSmileStarted());
+
      fetch(`https://api.giphy.com/v1/gifs/random?api_key=${CONSTS.GIPHY_KEY}&tag=smile`)
       .then(resp => resp.json())
       .then(resp => {
-        dispatch(fetchSmileSucceeded(resp.data.fixed_height_downsampled_url))
+        setTimeout(() => {
+          dispatch(fetchSmileSucceeded(resp.data.fixed_height_downsampled_url))
+        }, 100)
     })
   }
 }
