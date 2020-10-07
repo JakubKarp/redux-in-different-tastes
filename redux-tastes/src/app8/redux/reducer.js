@@ -4,6 +4,7 @@ const defaultState = {
   number_1: 20,
   gif: '',
   isLoading: false,
+  timer: 0,
 }
 
 const reducer = (state = defaultState, action) => {
@@ -19,8 +20,12 @@ const reducer = (state = defaultState, action) => {
         return  { ...state, gif: action.payload.gif, isLoading: false }
       case ACTIONS.FETCH_SMILE_FAILED:
         return  { ...state, isLoading: false }
-    default:
-      return state;
+      case ACTIONS.FETCH_TIMER_INCREMENT:
+        return  { ...state, timer: state.timer + 1 }
+      case ACTIONS.FETCH_TIMER_RESET:
+        return  { ...state, timer: 0 }
+      default:
+        return state;
   }
 }
 

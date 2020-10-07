@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { increaseNumber_1, decreaseNumber_1, fetchSmileStarted } from './redux/actions-creators';
+import { increaseNumber_1, decreaseNumber_1, fetchSmileAndTimer } from './redux/actions-creators';
 import '../App.css';
 
 function Buttons(props) {
@@ -15,7 +15,7 @@ const { number1, gifIsOnBoard } = props;
   }
 
   const getSmile = () => {
-    props.dispatch(fetchSmileStarted());
+    props.dispatch(fetchSmileAndTimer());
   }
 
   return (

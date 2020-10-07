@@ -1,27 +1,35 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest, delay } from 'redux-saga/effects';
 import * as api from '../api';
 
 
 export default function* rootSaga() {
   yield takeLatest('FETCH_SMILE_STARTED', watchFetchTasks);
+  yield takeLatest('FETCH_TIMER_STARTED', handleTimer);
   // yield fork(watchElse);
 };
 
+
+function* handleTimer() {
+  while (true) {
+    yield delay(1000)
+    yield put({
+      type: 'FETCH_TIMER_INCREMENT'
+    })
+  }
+}
+
 function* watchFetchTasks() {
-  // while (true) {
-    // yield take('FETCH_SMILE_STARTED')
     try {
-      const gif = yield call(api.getSmile);
-      yield put({
-        type: 'FETCH_SMILE_SUCCEEDED',
-        payload: {gif}
-      });
-    } catch (e) {
-      yield put({
-        type: 'FETCH_SMILE_FAILED',
-      })
-    }
-  // }
+    const gif = yield call(api.getSmile);
+    yield put({
+      type: 'FETCH_SMILE_SUCCEEDED',
+      payload: {gif}
+    });
+  } catch (e) {
+    yield put({
+      type: 'FETCH_SMILE_FAILED',
+    })
+  }
 }
 
 // function* watchElse() {

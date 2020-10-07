@@ -24,6 +24,27 @@ export const fetchSmileStarted = () => {
   }
 }
 
+export const fetchTimerStarted = () => {
+  return {
+    type: ACTIONS.FETCH_TIMER_STARTED,
+  }
+}
+
+export const fetchTimerReset = () => {
+  return {
+    type: ACTIONS.FETCH_TIMER_RESET,
+  }
+}
+
+export const fetchSmileAndTimer = () => {
+  return async dispatch => {
+    await dispatch(fetchSmileStarted());
+    dispatch(fetchTimerReset());
+    dispatch(fetchTimerStarted());
+  }
+}
+
+
 // export const fetchSmileSucceeded = (gif) => {
 //   return {
 //     type: ACTIONS.FETCH_SMILE_SUCCEEDED,
