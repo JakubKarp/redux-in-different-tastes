@@ -1,11 +1,10 @@
-import React, { useReducer } from 'react';
-import reducer, {defaultState} from './redux/reducer';
+import React, { useContext } from 'react';
 import { ACTIONS } from './redux/actions';
+import {AppContext} from '../App10';
 import '../App.css';
 
 function Buttons(props) {
-
-const [state, dispatch] = useReducer(reducer, defaultState);
+  const [state, dispatch ] = useContext(AppContext)
 
   const addToOne = () => {
     dispatch({type: ACTIONS.INCREASE_NUMBER_1});
