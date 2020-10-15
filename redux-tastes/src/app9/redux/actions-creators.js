@@ -1,5 +1,4 @@
 import { ACTIONS } from './actions';
-import CONSTS from '../../consts/consts';
 
 export const increaseNumber_1 = (number_1) => {
   return {
@@ -19,21 +18,47 @@ export const decreaseNumber_1 = (number_1) => {
   }
 }
 
-export const fetchSmileSucceeded = (gif) => {
+export const fetchSmileStarted = () => {
   return {
-    type: ACTIONS.FETCH_SMILE_SUCCEEDED,
-    payload: {
-      gif,
-    }
+    type: ACTIONS.FETCH_SMILE_STARTED,
   }
 }
 
-export const fetchSmile = () => {
-  return dispatch => {
-     fetch(`https://api.giphy.com/v1/gifs/random?api_key=${CONSTS.GIPHY_KEY}&tag=smile`)
-      .then(resp => resp.json())
-      .then(resp => {
-        dispatch(fetchSmileSucceeded(resp.data.fixed_height_downsampled_url))
-    })
+export const fetchTimerStarted = () => {
+  return {
+    type: ACTIONS.FETCH_TIMER_STARTED,
   }
 }
+
+export const fetchTimerReset = () => {
+  return {
+    type: ACTIONS.FETCH_TIMER_RESET,
+  }
+}
+
+export const fetchSmileAndTimer = () => {
+  return async dispatch => {
+    await dispatch(fetchSmileStarted());
+    dispatch(fetchTimerReset());
+    dispatch(fetchTimerStarted());
+  }
+}
+
+
+// export const fetchSmileSucceeded = (gif) => {
+//   return {
+//     type: ACTIONS.FETCH_SMILE_SUCCEEDED,
+//     payload: {
+//       gif,
+//     }
+//   }
+// }
+
+// export const fetchSmile = () => {
+//   return async dispatch => {
+//     dispatch(fetchSmileStarted());
+
+//     const gif = await api.getSmile()
+//     dispatch(fetchSmileSucceeded(gif))
+//   }
+// };

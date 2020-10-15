@@ -1,43 +1,30 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { increaseNumber_1, decreaseNumber_1, fetchSmile } from './redux/actions-creators';
+import React, { useReducer } from 'react';
+import reducer, {defaultState} from './redux/reducer';
+import { ACTIONS } from './redux/actions';
 import '../App.css';
 
 function Buttons(props) {
-const { number1, gifIsOnBoard } = props;
 
-  const addToOne = (number) => {
-    props.dispatch(increaseNumber_1(number));
+const [state, dispatch] = useReducer(reducer, defaultState);
+
+  const addToOne = () => {
+    dispatch({type: ACTIONS.INCREASE_NUMBER_1});
   }
 
-  const subtractFromOne = (number) => {
-    props.dispatch(decreaseNumber_1(number));
-  }
-
-  const getSmile = () => {
-    props.dispatch(fetchSmile());
+  const subtractFromOne = () => {
+    dispatch({type: ACTIONS.DECREASE_NUMBER_1});
   }
 
   return (
     <div className="numbers">
-     <div className="number">number 1 is {number1}</div>
+     <div className="number">number 1 is {state.number_1}</div>
      <div className="buttons">
-      <button onClick={() => addToOne(number1)} className="button">Dodaj</button>
-      <button onClick={() => subtractFromOne(number1)} className="button">Odejmij</button>
-    </div>
-     <div className="buttons">
-       <p>{gifIsOnBoard === '' ? 'Kliknij button żeby zobaczyć uśmiech' : 'Fajnie?' }</p>
-      <button onClick={() => getSmile()} className="button" >{gifIsOnBoard === '' ? 'Zobacz uśmiech' : 'Klikaj po więcej uśmiechów'}</button>
+      <button onClick={() => addToOne()} className="button">Dodaj</button>
+      <button onClick={() => subtractFromOne()} className="button">Odejmij</button>
     </div>
     </div>
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    number1: state.number_1,
-    gifIsOnBoard: state.gif
-  }
-}
 
-export default connect(mapStateToProps)(Buttons);
+export default Buttons;

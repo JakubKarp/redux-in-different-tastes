@@ -10,7 +10,7 @@ function App9() {
   return (
     <Provider store={store}>
     <div className="App9">
-      <h2>Redux ???</h2>
+      <h2>Redux Selector</h2>
       <div className="container">
         <Buttons />
         <Output />
