@@ -5,7 +5,7 @@ import Output from "./app10/output";
 import Description from "./app10/description";
 import "./App.css";
 
-export const AppContext = createContext(defaultState)
+export const AppContext = createContext()
 
 function App10() {
   const [state, dispatch] = useReducer(reducer, defaultState);

@@ -49,8 +49,15 @@
   background: darkolivegreen;
 }
 
+
+.App11 {
+  text-align: center;
+  background: darkslateblue;
+}
+
 h2 {
   margin: 0;
+  padding-top: 16px;
 }
 
 
